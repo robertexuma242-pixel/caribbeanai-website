@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CaribbeanAI.ai — AI Solutions for the Caribbean</title>
+  <meta name="description" content="CaribbeanAI.ai delivers AI automation, consulting, and technology representation across the Caribbean. Official Caribbean representative for Ranger AI." />
+  <meta name="keywords" content="Caribbean AI, AI automation Caribbean, AI consulting Caribbean, Ranger AI Caribbean, technology representation Caribbean" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:   #080f1d;
+      --dark2:  #0d1a30;
+      --dark3:  #112040;
+      --light:  #ffffff;
+      --light2: #f5f7ff;
+      --light3: #fdf8ee;
+      --teal:   #FFD100;
+      --teal2:  #e0b800;
+      --blue:   #1a6bff;
+      --text-dark:  #0a1628;
+      --text-mid:   #5a6a82;
+      --text-light: rgba(255,255,255,0.65);
+      --border-dark:  rgba(255,255,255,0.09);
+      --border-light: #dde6f0;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text-dark); overflow-x: hidden; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+    /* BUTTONS */
+    .btn-teal {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 34px; background: var(--teal); color: var(--dark);
+      text-decoration: none; font-size: 0.86rem; font-weight: 600;
+      letter-spacing: 0.03em; border-radius: 6px; border: none; cursor: pointer;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 18px rgba(255,209,0,.35);
+    }
+    .btn-teal:hover { background: var(--teal2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,209,0,.4); }
+
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 34px; background: #fff; color: var(--dark);
+      text-decoration: none; font-size: 0.86rem; font-weight: 600;
+      border-radius: 6px; border: none; cursor: pointer;
+      transition: background .2s, transform .15s;
+      box-shadow: 0 4px 18px rgba(0,0,0,.15);
+    }
+    .btn-white:hover { background: #f0f8ff; transform: translateY(-2px); }
+
+    .btn-outline-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 34px; background: transparent; color: #fff;
+      text-decoration: none; font-size: 0.86rem; font-weight: 600;
+      border-radius: 6px; border: 2px solid rgba(255,255,255,.3); cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-outline-white:hover { border-color: var(--teal); color: var(--teal); }
+
+    .btn-outline-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 34px; background: transparent; color: var(--text-dark);
+      text-decoration: none; font-size: 0.86rem; font-weight: 600;
+      border-radius: 6px; border: 2px solid var(--border-light); cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-outline-dark:hover { border-color: var(--teal); color: var(--teal); }
+
+    .btn-lg { padding: 18px 42px !important; font-size: 0.95rem !important; }
+
+    .tag-teal { display: inline-block; font-size: .68rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+    .tag-white { display: inline-block; font-size: .68rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px; }
+
+    .h2-dark  { font-family: 'Sora',sans-serif; font-size: clamp(2rem,3.2vw,2.9rem); font-weight: 700; line-height: 1.15; color: var(--text-dark); margin-bottom: 18px; }
+    .h2-light { font-family: 'Sora',sans-serif; font-size: clamp(2rem,3.2vw,2.9rem); font-weight: 700; line-height: 1.15; color: #fff; margin-bottom: 18px; }
+
+    .sub-dark  { font-size: 1rem; line-height: 1.85; color: var(--text-mid); }
+    .sub-light { font-size: 1rem; line-height: 1.85; color: var(--text-light); }
+
+    /* ── HEADER ──────────────────────────────── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(8,15,29,.95); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-dark);
+      transition: box-shadow .3s;
+    }
+    header.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,.4); }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 90px; max-width: 1200px; margin: 0 auto; padding: 0 48px;
+    }
+
+    .logo { text-decoration: none; display: flex; align-items: center; gap: 10px; }
+    .logo img { height: 70px; width: auto; display: block; }
+    .logo-text { font-family: 'Sora', sans-serif; font-size: 2.625rem; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+    .logo-text span { color: var(--teal); }
+
+    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+    .nav-links a { text-decoration: none; color: rgba(255,255,255,.6); font-size: .82rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: #fff; }
+
+    .lang-switcher { display:flex; gap:4px; align-items:center; margin-left:8px; }
+    .lang-btn {
+      padding:5px 10px; border-radius:5px; border:1px solid rgba(255,255,255,.15);
+      background:transparent; color:rgba(255,255,255,.5); font-family:'Inter',sans-serif;
+      font-size:.73rem; font-weight:600; cursor:pointer; transition:all .2s; letter-spacing:.04em;
+    }
+    .lang-btn:hover { border-color:var(--teal); color:var(--teal); }
+    .lang-btn.active { background:var(--teal); border-color:var(--teal); color:var(--dark); }
+
+    /* hide Google Translate bar */
+    .goog-te-banner-frame, .skiptranslate { display:none !important; }
+    body { top:0 !important; }
+    .goog-te-gadget { display:none !important; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #fff; }
+
+    /* ── HERO (DARK) ─────────────────────────── */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 120px 0 60px;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark3) 100%);
+      position: relative; overflow: hidden;
+    }
+
+    .hero-grid-bg {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,209,0,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,209,0,.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+
+    .hero-glow {
+      position: absolute; top: -80px; right: -80px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(255,209,0,.1) 0%, rgba(26,107,255,.06) 40%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 16px; background: rgba(255,209,0,.1);
+      border: 1px solid rgba(255,209,0,.25); border-radius: 100px;
+      font-size: .72rem; font-weight: 600; color: var(--teal); margin-bottom: 28px;
+    }
+    .hero-badge::before { content:''; width:7px; height:7px; background:var(--teal); border-radius:50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.4} }
+
+    .hero-title {
+      font-family: 'Sora',sans-serif;
+      font-size: clamp(2.8rem,5vw,4.6rem);
+      font-weight: 700; line-height: 1.1; color: #fff;
+      letter-spacing: -.02em; margin-bottom: 24px;
+    }
+    .hero-title .grad {
+      background: linear-gradient(135deg, var(--teal) 0%, #4de8d4 50%, var(--blue) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .hero-sub { font-size: 1.05rem; line-height: 1.8; color: var(--text-light); margin-bottom: 40px; max-width: 480px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .hero-img-wrap { position: relative; display: flex; justify-content: center; align-items: center; }
+
+    .hero-img-glow {
+      position: absolute; inset: -60px;
+      background: radial-gradient(circle, rgba(255,209,0,.18) 0%, rgba(26,107,255,.1) 45%, transparent 70%);
+      border-radius: 50%; animation: glow 4s ease-in-out infinite alternate;
+    }
+    @keyframes glow { from{transform:scale(.95);opacity:.7} to{transform:scale(1.05);opacity:1} }
+
+    .hero-img {
+      position: relative; z-index: 2;
+      width: 100%; max-width: 500px; display: block;
+      border-radius: 24px;
+      filter: drop-shadow(0 24px 64px rgba(255,209,0,.25)) drop-shadow(0 8px 24px rgba(0,0,0,.4));
+    }
+
+    .hero-logo-img {
+      position: relative; z-index: 2;
+      width: 100%; max-width: 480px; display: block;
+      filter: drop-shadow(0 0 60px rgba(255,209,0,.35)) drop-shadow(0 0 20px rgba(26,107,255,.2));
+      animation: float 5s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+
+    .hero-stats-stack {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column; gap: 16px; width: 100%;
+    }
+    .hstat {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 28px 36px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+      transition: background .2s, border-color .2s;
+    }
+    .hstat:hover { background: rgba(255,209,0,.08); border-color: rgba(255,209,0,.25); }
+    .hstat-num { font-family:'Sora',sans-serif; font-size: 2.8rem; font-weight: 700; color: var(--teal); }
+    .hstat-lbl { font-size: .85rem; color: rgba(255,255,255,.6); font-weight: 500; }
+
+    .float-card {
+      position: absolute; z-index: 3;
+      background: rgba(255,255,255,.08); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.15); border-radius: 12px;
+      padding: 12px 18px; font-size: .75rem; font-weight: 600; color: #fff;
+      display: flex; align-items: center; gap: 8px; white-space: nowrap;
+    }
+    .float-card .dot { width:8px;height:8px;background:var(--teal);border-radius:50%;flex-shrink:0; }
+    .fc-tl { top:10%;left:-20px; }
+    .fc-br { bottom:14%;right:-16px; }
+
+    /* ── LOGOS ───────────────────────────────── */
+    .logos { padding: 28px 0; background: var(--light2); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+    .logos-inner { max-width:1200px;margin:0 auto;padding:0 48px;display:flex;align-items:center;gap:40px;flex-wrap:wrap;justify-content:center; }
+    .logos-label { font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;color:#aab;white-space:nowrap; }
+    .logo-chip { padding:6px 16px;border:1px solid var(--border-light);border-radius:100px;font-size:.76rem;font-weight:600;color:var(--text-mid);background:#fff; }
+
+    /* ── ABOUT (LIGHT) ───────────────────────── */
+    .about { padding: 110px 0; background: var(--light); }
+
+    .about-grid { display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center; }
+
+    .about-points { display:flex;flex-direction:column;gap:14px;margin:28px 0 40px; }
+    .apoint {
+      display:flex;gap:14px;padding:18px 20px;
+      background:var(--light2);border:1px solid var(--border-light);border-radius:12px;
+      transition:border-color .2s,box-shadow .2s;
+    }
+    .apoint:hover { border-color:var(--teal);box-shadow:0 4px 16px rgba(255,209,0,.08); }
+    .apoint-icon { font-size:1.2rem;flex-shrink:0;margin-top:2px; }
+    .apoint-text { font-size:.87rem;color:var(--text-mid);line-height:1.65; }
+    .apoint-text strong { display:block;color:var(--text-dark);font-size:.9rem;margin-bottom:3px; }
+
+    .about-card {
+      background: linear-gradient(135deg, var(--dark2) 0%, var(--dark3) 100%);
+      border-radius: 20px; padding: 40px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.18);
+    }
+    .stat-grid { display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:28px;border-radius:12px;overflow:hidden; }
+    .stat { padding:28px 24px;background:rgba(255,255,255,.04);text-align:center; }
+    .stat-num { font-family:'Sora',sans-serif;font-size:2.4rem;font-weight:700;color:var(--teal);line-height:1;margin-bottom:4px; }
+    .stat-lbl { font-size:.72rem;color:rgba(255,255,255,.45); }
+
+    /* ── SERVICES (DARK) ─────────────────────── */
+    .services { padding: 110px 0; background: var(--dark); }
+
+    .sec-header-center { text-align:center;margin-bottom:60px; }
+    .sec-header-center .sub-light { max-width:560px;margin:0 auto; }
+
+    .services-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:2px; }
+    .scard {
+      padding:32px 24px;background:var(--dark2);
+      transition:background .25s,transform .2s;
+    }
+    .scard:hover { background:rgba(255,209,0,.07);transform:translateY(-4px); }
+    .scard-icon { width:48px;height:48px;background:rgba(255,209,0,.12);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:18px; }
+    .scard-title { font-family:'Sora',sans-serif;font-size:.93rem;font-weight:600;color:#fff;margin-bottom:10px;line-height:1.3; }
+    .scard-desc { font-size:.8rem;color:var(--text-light);line-height:1.7; }
+
+    /* ── RANGER (LIGHT) ──────────────────────── */
+    .ranger { padding: 110px 0; background: var(--light2); }
+
+    .ranger-inner { display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center; }
+
+    .ranger-badge { display:inline-flex;align-items:center;gap:8px;padding:8px 18px;background:rgba(255,209,0,.1);border:1px solid rgba(255,209,0,.25);border-radius:100px;font-size:.72rem;font-weight:600;color:var(--teal2);margin-bottom:22px; }
+
+    .ranger-feats { display:flex;flex-direction:column;gap:12px;margin:24px 0 36px; }
+    .rfeat { display:flex;align-items:center;gap:12px;font-size:.87rem;color:var(--text-mid); }
+    .rfeat::before { content:'';width:7px;height:7px;background:var(--teal);border-radius:50%;flex-shrink:0; }
+
+    .ranger-box {
+      background: var(--dark2); border-radius:20px; padding:36px;
+      box-shadow: 0 16px 48px rgba(0,0,0,.14);
+    }
+    .ranger-box-head { display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.07); }
+    .ranger-logo { font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:#fff; }
+    .ranger-logo span { color:var(--teal); }
+    .ranger-status { display:flex;align-items:center;gap:6px;font-size:.72rem;color:var(--teal); }
+    .ranger-status::before { content:'';width:7px;height:7px;background:var(--teal);border-radius:50%;animation:pulse 2s infinite; }
+
+    .rcap-list { display:flex;flex-direction:column;gap:10px; }
+    .rcap { display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(255,209,0,.06);border-radius:10px;border:1px solid rgba(255,209,0,.12); }
+    .rcap-icon { font-size:1.1rem; }
+    .rcap-text { font-size:.81rem;color:rgba(255,255,255,.7);line-height:1.35; }
+    .rcap-text strong { display:block;color:#fff;font-size:.84rem;margin-bottom:1px; }
+
+    /* ── WHY AI (DARK) ───────────────────────── */
+    .why { padding: 110px 0; background: var(--dark2); }
+
+    .why-grid { display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center; }
+
+    .challenges { display:flex;flex-direction:column;gap:12px;margin-top:28px; }
+    .chal { display:flex;gap:14px;padding:18px 20px;background:rgba(255,255,255,.03);border-left:4px solid var(--teal);border-radius:0 10px 10px 0; }
+    .chal-icon { font-size:1.1rem;flex-shrink:0;margin-top:2px; }
+    .chal-text { font-size:.85rem;color:var(--text-light);line-height:1.65; }
+    .chal-text strong { display:block;color:#fff;margin-bottom:2px; }
+
+    .benefits-grid { display:grid;grid-template-columns:1fr 1fr;gap:14px; }
+    .bcard { padding:26px 22px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;transition:border-color .2s,transform .2s; }
+    .bcard:hover { border-color:var(--teal);transform:translateY(-3px); }
+    .bcard-icon { font-size:1.8rem;margin-bottom:12px; }
+    .bcard-title { font-family:'Sora',sans-serif;font-size:.9rem;font-weight:600;color:#fff;margin-bottom:7px; }
+    .bcard-desc { font-size:.79rem;color:var(--text-light);line-height:1.65; }
+
+    /* ── INDUSTRIES (LIGHT) ──────────────────── */
+    .industries { padding: 110px 0; background: var(--light); }
+
+    .industries-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px; }
+    .icard { padding:30px 20px;background:#fff;border:1px solid var(--border-light);border-radius:16px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .25s; }
+    .icard:hover { border-color:var(--blue);box-shadow:0 8px 28px rgba(26,107,255,.1);transform:translateY(-4px); }
+    .icard-icon { font-size:2rem;margin-bottom:12px; }
+    .icard-name { font-family:'Sora',sans-serif;font-size:.9rem;font-weight:600;color:var(--text-dark);margin-bottom:7px; }
+    .icard-desc { font-size:.77rem;color:var(--text-mid);line-height:1.6; }
+
+    /* ── LEADERSHIP (DARK) ───────────────────── */
+    .leadership { padding: 110px 0; background: var(--dark); }
+
+    .lead-inner { display:grid;grid-template-columns:360px 1fr;gap:80px;align-items:center; }
+
+    .lead-photo-wrap { position:relative; }
+    .lead-photo { width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:20px;display:block;box-shadow:0 24px 64px rgba(0,0,0,.4); }
+    .lead-badge { position:absolute;bottom:24px;left:24px;right:24px;padding:16px 20px;background:rgba(8,15,29,.9);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);border-radius:12px; }
+    .lead-name { font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:2px; }
+    .lead-role { font-size:.75rem;color:var(--teal);font-weight:600; }
+
+    .lead-creds { display:flex;flex-direction:column;gap:13px;margin:24px 0 28px; }
+    .lcred { display:flex;gap:14px; }
+    .ldot { width:8px;height:8px;background:var(--teal);border-radius:50%;margin-top:6px;flex-shrink:0; }
+    .lcred-text { font-size:.87rem;color:var(--text-light);line-height:1.65; }
+    .lcred-text strong { color:#fff; }
+
+    .lead-quote { padding:22px 26px;background:rgba(255,209,0,.07);border-left:4px solid var(--teal);border-radius:0 10px 10px 0;font-size:.94rem;font-style:italic;color:rgba(255,255,255,.8);line-height:1.75;margin-bottom:32px; }
+
+    /* ── CTA (LIGHT) ─────────────────────────── */
+    .cta-section { padding: 110px 0; background: var(--light3); text-align:center; }
+    .cta-title { font-family:'Sora',sans-serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--text-dark);line-height:1.15;margin-bottom:18px;max-width:680px;margin-left:auto;margin-right:auto; }
+    .cta-sub { font-size:1rem;color:var(--text-mid);margin-bottom:44px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.8; }
+    .cta-btns { display:flex;gap:14px;justify-content:center;flex-wrap:wrap; }
+
+    /* ── CONTACT (DARK) ──────────────────────── */
+    .contact { padding: 110px 0; background: var(--dark2); }
+
+    .contact-grid { display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start; }
+
+    .contact-details { display:flex;flex-direction:column;gap:18px;margin-top:28px; }
+    .cdetail { display:flex;gap:14px;align-items:flex-start; }
+    .cdetail-icon { width:42px;height:42px;background:rgba(255,209,0,.12);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0; }
+    .cdetail-label { display:block;font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:3px; }
+    .cdetail-val { font-size:.9rem;color:#fff;font-weight:500; }
+
+    .contact-form-wrap { background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:40px; }
+    .form-title { font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:24px; }
+    .calendly-wrap { border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.08); }
+    .calendly-inline-widget { min-width:320px; }
+
+    .contact-form { display:flex;flex-direction:column; }
+    .frow { display:grid;grid-template-columns:1fr 1fr; }
+    .ffield input, .ffield textarea {
+      width:100%;padding:16px 18px;
+      background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+      border-right:none;border-bottom:none;
+      font-family:'Inter',sans-serif;font-size:.84rem;color:#fff;outline:none;
+      transition:background .2s,border-color .2s;
+    }
+    .frow .ffield:last-child input { border-right:1px solid rgba(255,255,255,.08); }
+    .ffield.full input,.ffield.full textarea { border-right:1px solid rgba(255,255,255,.08); }
+    .ffield.last textarea,.ffield.last input { border-bottom:1px solid rgba(255,255,255,.08); }
+    .ffield input:focus,.ffield textarea:focus { background:rgba(255,209,0,.06);border-color:rgba(255,209,0,.35);position:relative;z-index:1; }
+    .ffield input::placeholder,.ffield textarea::placeholder { color:rgba(255,255,255,.28); }
+    .ffield textarea { resize:none;height:130px; }
+
+    .form-submit {
+      margin-top:16px;padding:17px;
+      background:linear-gradient(135deg,var(--teal) 0%,var(--teal2) 100%);
+      color:var(--dark);border:none;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:700;
+      letter-spacing:.04em;border-radius:8px;cursor:pointer;
+      transition:opacity .2s,transform .15s;
+      box-shadow:0 4px 18px rgba(255,209,0,.3);
+    }
+    .form-submit:hover { opacity:.9;transform:translateY(-1px); }
+
+    /* ── FOOTER ──────────────────────────────── */
+    footer { padding:56px 0 28px;background:var(--dark); border-top:1px solid var(--border-dark); }
+    .footer-top { display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:56px;margin-bottom:48px; }
+    .footer-logo { font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:12px; }
+    .footer-logo span { color:var(--teal); }
+    .footer-tag { font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.75;max-width:240px;margin-bottom:14px; }
+    .footer-partner { font-size:.72rem;color:rgba(255,255,255,.25); }
+    .fcol-title { font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:18px; }
+    .flinks { list-style:none;display:flex;flex-direction:column;gap:11px; }
+    .flinks a { text-decoration:none;font-size:.81rem;color:rgba(255,255,255,.38);transition:color .2s; }
+    .flinks a:hover { color:var(--teal); }
+    .footer-bottom { display:flex;justify-content:space-between;align-items:center;padding-top:22px;border-top:1px solid rgba(255,255,255,.06); }
+    .fcopy { font-size:.74rem;color:rgba(255,255,255,.25); }
+    .flegal { display:flex;gap:22px; }
+    .flegal a { font-size:.74rem;color:rgba(255,255,255,.25);text-decoration:none; }
+    .flegal a:hover { color:var(--teal); }
+
+    /* ── RANGER INDUSTRIES ───────────────────── */
+    .ranger-ind { padding: 110px 0; background: var(--dark); }
+
+    .rind-header { text-align:center; max-width:680px; margin:0 auto 56px; }
+
+    .rind-tabs { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:52px; }
+    .rind-tab {
+      padding: 12px 28px; border-radius:100px; border: 2px solid rgba(255,255,255,.12);
+      background: transparent; color: rgba(255,255,255,.55); font-family:'Sora',sans-serif;
+      font-size:.85rem; font-weight:600; cursor:pointer; transition:all .2s;
+    }
+    .rind-tab:hover { border-color:var(--teal); color:var(--teal); }
+    .rind-tab.active { background:var(--teal); border-color:var(--teal); color:var(--dark); }
+
+    .rind-panel { display:none; }
+    .rind-panel.active { display:block; }
+
+    /* Construction panel layout */
+    .rind-hero { text-align:center; margin-bottom:64px; }
+    .rind-slogan { font-family:'Sora',sans-serif; font-size:clamp(2rem,3.5vw,3.2rem); font-weight:700; color:#fff; line-height:1.15; margin-bottom:16px; }
+    .rind-slogan span { color:var(--teal); }
+    .rind-sub { font-size:1.05rem; color:var(--text-light); max-width:620px; margin:0 auto; }
+
+    .rind-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:48px; }
+    .rind-card {
+      padding:32px 28px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07);
+      border-radius:16px; transition:border-color .2s, transform .2s;
+    }
+    .rind-card:hover { border-color:var(--teal); transform:translateY(-4px); }
+    .rind-card-icon { font-size:1.8rem; margin-bottom:16px; }
+    .rind-card-title { font-family:'Sora',sans-serif; font-size:1rem; font-weight:700; color:#fff; margin-bottom:10px; }
+    .rind-card-text { font-size:.84rem; color:var(--text-light); line-height:1.7; }
+
+    .rind-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; background:rgba(255,209,0,.04); border:1px solid rgba(255,209,0,.12); border-radius:20px; padding:40px 32px; margin-bottom:48px; }
+    .rind-stat { text-align:center; }
+    .rind-stat-num { font-family:'Sora',sans-serif; font-size:2.4rem; font-weight:700; color:var(--teal); line-height:1; margin-bottom:8px; }
+    .rind-stat-label { font-size:.78rem; color:var(--text-light); line-height:1.4; }
+
+    .rind-how { margin-bottom:0; }
+    .rind-how-title { font-family:'Sora',sans-serif; font-size:1.3rem; font-weight:700; color:#fff; text-align:center; margin-bottom:32px; }
+    .rind-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .rind-step { padding:28px 24px; background:rgba(255,209,0,.05); border:1px solid rgba(255,209,0,.15); border-radius:14px; text-align:center; }
+    .rind-step-num { width:38px;height:38px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:.85rem;font-weight:700;color:var(--dark);margin:0 auto 14px; }
+    .rind-step-title { font-family:'Sora',sans-serif; font-size:.92rem; font-weight:700; color:#fff; margin-bottom:8px; }
+    .rind-step-text { font-size:.81rem; color:var(--text-light); line-height:1.6; }
+
+    .rind-coming { text-align:center; padding:80px 0; }
+    .rind-coming h3 { font-family:'Sora',sans-serif; font-size:1.5rem; font-weight:700; color:#fff; margin-bottom:12px; }
+    .rind-coming p { color:var(--text-light); font-size:.9rem; }
+
+    /* ── MOBILE MENU ─────────────────────────── */
+    .mobile-menu { display:none;position:fixed;inset:0;background:rgba(8,15,29,.98);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:28px; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { font-family:'Sora',sans-serif;font-size:1.6rem;font-weight:700;color:#fff;text-decoration:none; }
+    .mobile-menu a:hover { color:var(--teal); }
+    .mobile-close { position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer; }
+
+    /* ── RESPONSIVE ──────────────────────────── */
+    @media(max-width:1024px) {
+      .services-grid { grid-template-columns:repeat(2,1fr); }
+      .industries-grid { grid-template-columns:repeat(2,1fr); }
+      .footer-top { grid-template-columns:1fr 1fr;gap:40px; }
+    }
+    @media(max-width:900px) {
+      .container { padding:0 24px; }
+      nav { padding:0 20px; }
+      .nav-links { display:none; }
+      .hamburger { display:flex; }
+      .lang-switcher { margin-left:auto; margin-right:12px; }
+      .logo-text { font-size:1.6rem; }
+      .hero { padding:130px 0 70px; }
+      .hero-inner { grid-template-columns:1fr; }
+      .hero-img-wrap { display:none; }
+      .about-grid,.ranger-inner,.why-grid,.lead-inner,.contact-grid { grid-template-columns:1fr;gap:44px; }
+      .rind-grid { grid-template-columns:1fr; }
+      .rind-stats { grid-template-columns:repeat(2,1fr); }
+      .rind-steps { grid-template-columns:1fr; }
+      .rind-tabs { gap:8px; }
+      .rind-tab { padding:9px 16px; font-size:.78rem; }
+      .rind-slogan { font-size:clamp(1.6rem,5vw,2.4rem); }
+      .lead-photo { aspect-ratio:1/1; }
+      .frow { grid-template-columns:1fr; }
+      .frow .ffield:last-child input { border-right:none; }
+      .footer-bottom { flex-direction:column;gap:12px;text-align:center; }
+      section.about, section.services, section.ranger, section.ranger-ind,
+      section.why, section.industries, section.leadership, section.contact { padding:70px 0; }
+    }
+    @media(max-width:540px) {
+      .logo-text { font-size:1.2rem; }
+      .lang-btn { padding:4px 7px; font-size:.68rem; }
+      .industries-grid { grid-template-columns:1fr 1fr; }
+      .benefits-grid { grid-template-columns:1fr; }
+      .footer-top { grid-template-columns:1fr; }
+      .cta-btns,.hero-btns { flex-direction:column; }
+      .rind-stats { grid-template-columns:1fr 1fr; }
+      .rind-stat-num { font-size:1.8rem; }
+      .rind-tabs { justify-content:flex-start; overflow-x:auto; flex-wrap:nowrap; padding-bottom:4px; }
+      .rind-tab { white-space:nowrap; flex-shrink:0; }
+      .contact-grid { grid-template-columns:1fr; }
+      .calendly-inline-widget { height:550px !important; }
+      .hero-badge { font-size:.62rem; }
+      .ranger-box { padding:24px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="toggleMenu()">✕</button>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#services" onclick="toggleMenu()">Services</a>
+    <a href="#ranger" onclick="toggleMenu()">Ranger AI</a>
+    <a href="#industries" onclick="toggleMenu()">Industries</a>
+    <a href="#leadership" onclick="toggleMenu()">Leadership</a>
+    <a href="#contact" onclick="toggleMenu()" style="color:var(--teal)">Book a Demo</a>
+    <div class="lang-switcher" style="margin-top:8px;">
+      <button class="lang-btn active" onclick="setLang('en', this)">EN</button>
+      <button class="lang-btn" onclick="setLang('es', this)">ES</button>
+      <button class="lang-btn" onclick="setLang('fr', this)">FR</button>
+    </div>
+  </div>
+
+  <!-- GOOGLE TRANSLATE (hidden) -->
+  <div id="google_translate_element" style="display:none"></div>
+
+  <!-- HEADER -->
+  <header id="header">
+    <nav>
+      <a href="#" class="logo"><span class="logo-text notranslate">Caribbean<span>AI</span>.ai</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#ranger">Ranger AI</a></li>
+        <li><a href="#industries">Industries</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#contact"><span class="btn-teal" style="padding:10px 22px;font-size:.8rem">Book a Demo</span></a></li>
+      </ul>
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('en', this)">EN</button>
+        <button class="lang-btn" onclick="setLang('es', this)">ES</button>
+        <button class="lang-btn" onclick="setLang('fr', this)">FR</button>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </nav>
+  </header>
+
+  <!-- ① HERO — DARK -->
+  <section class="hero" id="home">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-inner container">
+      <div>
+        <div class="hero-badge">Official Caribbean Representative · Ranger AI</div>
+        <h1 class="hero-title">AI Solutions for<br /><span class="grad">the Caribbean</span></h1>
+        <p class="hero-sub">Helping Caribbean businesses adopt automation, scale operations, and access world-class AI technologies. Your dedicated regional AI partner.</p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-teal btn-lg">Book a Demo</a>
+          <a href="#about" class="btn-outline-white btn-lg">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-img-wrap">
+        <div class="hero-img-glow"></div>
+        <img src="cai logo.png" alt="CaribbeanAI.ai Logo" class="hero-logo-img" />
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGOS — LIGHT -->
+  <div class="logos">
+    <div class="logos-inner">
+      <span class="logos-label">Technology Partners</span>
+      <span class="logo-chip">Ranger AI</span>
+      <span class="logo-chip">Anthropic</span>
+      <span class="logo-chip">Make.com</span>
+      <span class="logo-chip">OpenAI</span>
+      <span class="logo-chip">Microsoft Azure AI</span>
+      <span class="logo-chip">Google Cloud AI</span>
+    </div>
+  </div>
+
+  <!-- ② ABOUT — LIGHT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <span class="tag-teal">About CaribbeanAI.ai</span>
+          <h2 class="h2-dark">The Caribbean's Dedicated <span style="color:var(--teal)">AI Partner</span></h2>
+          <p class="sub-dark">CaribbeanAI.ai was built specifically for the Caribbean market — combining deep regional knowledge with world-class AI capabilities to help businesses implement tools, automate operations, and compete globally.</p>
+          <div class="about-points">
+            <div class="apoint"><span class="apoint-icon">🔧</span><div class="apoint-text"><strong>AI Implementation & Automation</strong>Practical AI solutions that solve real operational problems across the Caribbean.</div></div>
+            <div class="apoint"><span class="apoint-icon">🌐</span><div class="apoint-text"><strong>Market Representation</strong>The Caribbean entry point for world-leading AI companies — connecting global innovation to regional demand.</div></div>
+            <div class="apoint"><span class="apoint-icon">🧭</span><div class="apoint-text"><strong>Strategic Advisory</strong>AI strategy and digital transformation guidance built around Caribbean business realities.</div></div>
+          </div>
+          <a href="#contact" class="btn-teal">Schedule a Strategy Call</a>
+        </div>
+        <div>
+          <div class="about-card">
+            <span class="tag-teal">Our Reach</span>
+            <h3 style="font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:8px;">Caribbean-wide coverage</h3>
+            <p style="font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.75;">Serving businesses from the Bahamas and Jamaica to Trinidad, Barbados, and beyond.</p>
+            <div class="stat-grid">
+              <div class="stat"><div class="stat-num">8+</div><div class="stat-lbl">Island Nations</div></div>
+              <div class="stat"><div class="stat-num">8</div><div class="stat-lbl">Industries</div></div>
+              <div class="stat"><div class="stat-num">1</div><div class="stat-lbl">Regional HQ</div></div>
+              <div class="stat"><div class="stat-num">∞</div><div class="stat-lbl">AI Potential</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ③ SERVICES — DARK -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="sec-header-center">
+        <span class="tag-teal">What We Do</span>
+        <h2 class="h2-light">End-to-End AI <span style="color:var(--teal)">Services</span></h2>
+        <p class="sub-light">From strategy through full deployment — the expertise Caribbean businesses need to adopt AI with confidence.</p>
+      </div>
+      <div class="services-grid">
+        <div class="scard"><div class="scard-icon">🧠</div><h3 class="scard-title">AI Automation Consulting</h3><p class="scard-desc">Identify the highest-value automation opportunities and build a clear implementation roadmap.</p></div>
+        <div class="scard"><div class="scard-icon">⚙️</div><h3 class="scard-title">Workflow Automation</h3><p class="scard-desc">Automate approvals, reporting, data entry, and communications — free your team for higher-value work.</p></div>
+        <div class="scard"><div class="scard-icon">📊</div><h3 class="scard-title">Process Optimization</h3><p class="scard-desc">Redesign operations around AI to reduce costs, reduce errors, and increase throughput.</p></div>
+        <div class="scard"><div class="scard-icon">🗺️</div><h3 class="scard-title">AI Strategy</h3><p class="scard-desc">Custom AI adoption strategies built around Caribbean market constraints, infrastructure, and culture.</p></div>
+        <div class="scard"><div class="scard-icon">🤝</div><h3 class="scard-title">Market Representation</h3><p class="scard-desc">Official Caribbean representative for global AI and tech companies — sales, support, and market development.</p></div>
+        <div class="scard"><div class="scard-icon">🔄</div><h3 class="scard-title">Digital Transformation</h3><p class="scard-desc">Guide your organization from legacy systems to fully AI-enabled operations at a pace that works.</p></div>
+        <div class="scard"><div class="scard-icon">🏗️</div><h3 class="scard-title">Construction Intelligence</h3><p class="scard-desc">AI tools for project documentation, cost analysis, and procurement in construction environments.</p></div>
+        <div class="scard"><div class="scard-icon">🚀</div><h3 class="scard-title">Enterprise AI Deployment</h3><p class="scard-desc">Full-scale implementation — platform selection, integration, change management, and training.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ RANGER AI — LIGHT -->
+  <section class="ranger" id="ranger">
+    <div class="container">
+      <div class="ranger-inner">
+        <div>
+          <div class="ranger-badge">⚡ Featured Technology Partner</div>
+          <h2 class="h2-dark">Introducing <span style="color:var(--teal)">Ranger AI</span><br />in the Caribbean</h2>
+          <p class="sub-dark">CaribbeanAI.ai is the official Caribbean representative for Ranger AI — an advanced platform that enables organizations to analyze documents, plans, and business data with remarkable speed and intelligence.</p>
+          <div class="ranger-feats">
+            <div class="rfeat">Analyze complex project documents in seconds, not days</div>
+            <div class="rfeat">Extract key information from drawings, specs, and contracts</div>
+            <div class="rfeat">Accelerate decision-making with intelligent data synthesis</div>
+            <div class="rfeat">Built for construction, engineering, and operations environments</div>
+            <div class="rfeat">Enterprise-grade security and performance</div>
+          </div>
+          <a href="#contact" class="btn-teal btn-lg">Request a Ranger AI Demo</a>
+        </div>
+        <div class="ranger-box">
+          <div class="ranger-box-head">
+            <div class="ranger-logo">Ranger<span>AI</span></div>
+            <div class="ranger-status">Live · Caribbean</div>
+          </div>
+          <div class="rcap-list">
+            <div class="rcap"><span class="rcap-icon">📄</span><div class="rcap-text"><strong>Document Intelligence</strong>Contracts, specs, RFIs, submittals — analyzed instantly</div></div>
+            <div class="rcap"><span class="rcap-icon">📐</span><div class="rcap-text"><strong>Plan Analysis</strong>Extract information from drawings and technical plans</div></div>
+            <div class="rcap"><span class="rcap-icon">💰</span><div class="rcap-text"><strong>Cost & Procurement Intelligence</strong>Identify savings, risks, and variances at scale</div></div>
+            <div class="rcap"><span class="rcap-icon">📈</span><div class="rcap-text"><strong>Project Data Analysis</strong>Surface insights from complex operational datasets</div></div>
+            <div class="rcap"><span class="rcap-icon">🔒</span><div class="rcap-text"><strong>Enterprise Security</strong>Built for secure enterprise and government environments</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④b RANGER INDUSTRIES — DARK -->
+  <section class="ranger-ind" id="ranger-industries">
+    <div class="container">
+
+      <div class="rind-header">
+        <span class="tag-teal">Ranger AI · Industry Solutions</span>
+        <h2 class="h2-light">Precision AI for <span style="color:var(--teal)">Every Sector</span></h2>
+        <p class="sub-light">Built for the industries that demand accuracy, compliance, and speed.</p>
+      </div>
+
+      <!-- TABS -->
+      <div class="rind-tabs">
+        <button class="rind-tab active" onclick="switchRindTab('construction', this)">🏗️ Construction</button>
+        <button class="rind-tab" onclick="switchRindTab('energy', this)">⚡ Energy</button>
+        <button class="rind-tab" onclick="switchRindTab('pharma', this)">💊 Pharma</button>
+        <button class="rind-tab" onclick="switchRindTab('industry', this)">🔩 Engineering</button>
+      </div>
+
+      <!-- CONSTRUCTION PANEL -->
+      <div class="rind-panel active" id="rind-construction">
+
+        <div class="rind-hero">
+          <h3 class="rind-slogan">Bring Simplicity<br />to <span>Complexity</span></h3>
+          <p class="rind-sub">Upload your technical drawings and engineering documents into Ranger AI — built around precision for nuclear, oil and gas, and complex construction environments. Ranger AI becomes your project guru.</p>
+        </div>
+
+        <!-- STATS -->
+        <div class="rind-stats">
+          <div class="rind-stat"><div class="rind-stat-num">60%</div><div class="rind-stat-label">Increase in workflow process efficiency</div></div>
+          <div class="rind-stat"><div class="rind-stat-num">90%</div><div class="rind-stat-label">Decrease in decision evaluation time</div></div>
+          <div class="rind-stat"><div class="rind-stat-num">30%</div><div class="rind-stat-label">Reduction in resources required</div></div>
+          <div class="rind-stat"><div class="rind-stat-num">30%</div><div class="rind-stat-label">Reduction in project turnaround days</div></div>
+        </div>
+
+        <!-- CAPABILITY CARDS -->
+        <div class="rind-grid">
+          <div class="rind-card">
+            <div class="rind-card-icon">📐</div>
+            <div class="rind-card-title">Your Source of Truth</div>
+            <div class="rind-card-text">Ranger AI is your single source of data and information management. Upload drawings, specs, contracts, and RFIs — all accessible, all linked to source, all instantly queryable.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">🧠</div>
+            <div class="rind-card-title">Adapts to You</div>
+            <div class="rind-card-text">Ranger AI adapts to your company — not the other way around. It learns your standards, your formats, and your workflows. No forced process changes, no re-training your team.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">🎯</div>
+            <div class="rind-card-title">Fact-Based Intelligence</div>
+            <div class="rind-card-text">Engineered to address hallucinations and deliver fact-based answers. Every response is linked back to the source document — no guessing, no assumptions, no risk.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">🚀</div>
+            <div class="rind-card-title">Forget Legacy Systems</div>
+            <div class="rind-card-text">Ranger AI was built on AI intelligence from the ground up — not retrofitted onto outdated infrastructure. Leave behind the inefficiencies of legacy document management.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">🔒</div>
+            <div class="rind-card-title">Enterprise-Grade Security</div>
+            <div class="rind-card-text">SOC 2 Type I certified, ISO 27001 aligned. Bank-level encryption with role-based access — built for the security demands of nuclear, oil and gas, and government environments.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">⚡</div>
+            <div class="rind-card-title">Ready in 2 Weeks</div>
+            <div class="rind-card-text">From onboarding to live deployment in as little as 2 weeks. No lengthy IT projects, no months-long integrations — Ranger AI is operational before your next project kicks off.</div>
+          </div>
+        </div>
+
+        <!-- HOW IT WORKS -->
+        <div class="rind-how">
+          <div class="rind-how-title">How It Works</div>
+          <div class="rind-steps">
+            <div class="rind-step">
+              <div class="rind-step-num">1</div>
+              <div class="rind-step-title">Upload Once</div>
+              <div class="rind-step-text">Feed Ranger AI your technical drawings, engineering documents, specs, and contracts. It adapts to your organizational blueprint for consistent, company-specific results.</div>
+            </div>
+            <div class="rind-step">
+              <div class="rind-step-num">2</div>
+              <div class="rind-step-title">Ask and Analyze</div>
+              <div class="rind-step-text">Your project team asks questions in plain language. Ranger AI deploys intelligent agents to surface source-linked answers from your documents — instantly.</div>
+            </div>
+            <div class="rind-step">
+              <div class="rind-step-num">3</div>
+              <div class="rind-step-title">Collaborate and Deliver</div>
+              <div class="rind-step-text">Teams review insights, prepare deliverables, and collaborate in real time — faster, with fewer errors, and with full traceability back to source.</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /construction -->
+
+      <!-- ENERGY (coming soon) -->
+      <!-- ENERGY PANEL -->
+      <div class="rind-panel" id="rind-energy">
+
+        <div class="rind-hero">
+          <h3 class="rind-slogan">Transform Energy RFPs<br />with <span>Precision &amp; Speed</span></h3>
+          <p class="rind-sub">AI-powered efficiency for energy procurement — enabling secure, compliant, and competitive proposals in significantly less time. Built for the complexity of oil and gas, nuclear, and renewable energy environments.</p>
+        </div>
+
+        <div class="rind-stats">
+          <div class="rind-stat"><div class="rind-stat-num">60%</div><div class="rind-stat-label">Increase in proposal efficiency</div></div>
+          <div class="rind-stat"><div class="rind-stat-num">95%</div><div class="rind-stat-label">Reduction in RFP sorting time</div></div>
+          <div class="rind-stat"><div class="rind-stat-num">3X</div><div class="rind-stat-label">Output capacity increase</div></div>
+          <div class="rind-stat"><div class="rind-stat-num">200%</div><div class="rind-stat-label">Increase in legal review capacity</div></div>
+        </div>
+
+        <div class="rind-grid">
+          <div class="rind-card">
+            <div class="rind-card-icon">⚡</div>
+            <div class="rind-card-title">Compliance Built In</div>
+            <div class="rind-card-text">AI validation against API, ISO, and HSE standards with automatic tracking of comments and deviations — compliance is built into every step, not bolted on after.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">🔗</div>
+            <div class="rind-card-title">Cross-Functional Alignment</div>
+            <div class="rind-card-text">Engineering, legal, and commercial teams aligned in one platform. Enhanced accuracy across disciplines with actionable insights delivered during the proposal process.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">📄</div>
+            <div class="rind-card-title">Automated Document Parsing</div>
+            <div class="rind-card-text">Automates parsing, redlining, and compliance checks across complex energy documents. Scale operations without proportional increases in overhead or headcount.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">🔒</div>
+            <div class="rind-card-title">Secure by Design</div>
+            <div class="rind-card-text">Role-based access with enterprise encryption protocols. Bank-level security built to meet the strict data requirements of energy sector environments.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">⏱️</div>
+            <div class="rind-card-title">RFPs Actionable in 10 Minutes</div>
+            <div class="rind-card-text">Proposals organized and actionable within 10 minutes of upload. Competitive response times in complex, high-stakes bid environments without sacrificing accuracy.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">🚀</div>
+            <div class="rind-card-title">Built to Scale</div>
+            <div class="rind-card-text">3X output capacity without adding headcount. Ranger AI grows with your pipeline — from single projects to enterprise-wide procurement operations.</div>
+          </div>
+        </div>
+
+        <div class="rind-how">
+          <div class="rind-how-title">How It Works</div>
+          <div class="rind-steps">
+            <div class="rind-step">
+              <div class="rind-step-num">1</div>
+              <div class="rind-step-title">Upload Once</div>
+              <div class="rind-step-text">Upload organizational blueprints, technical specs, compliance frameworks, and historical RFP data. Ranger AI adapts to your standards and workflows.</div>
+            </div>
+            <div class="rind-step">
+              <div class="rind-step-num">2</div>
+              <div class="rind-step-title">Ask and Analyze</div>
+              <div class="rind-step-text">The Master Agent deploys specialized AI agents to surface source-linked insights across your documents — instantly, with full traceability.</div>
+            </div>
+            <div class="rind-step">
+              <div class="rind-step-num">3</div>
+              <div class="rind-step-title">Collaborate and Deliver</div>
+              <div class="rind-step-text">Teams coordinate in real time, prepare high-quality deliverables faster, and maintain a full audit trail for compliance and review.</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /energy -->
+
+      <!-- PHARMA PANEL -->
+      <div class="rind-panel" id="rind-pharma">
+
+        <div class="rind-hero">
+          <h3 class="rind-slogan">Going from Reactive<br />to <span>Proactive</span></h3>
+          <p class="rind-sub">Accelerate Workflows. Reduce Risk. Stay Ahead. Ranger AI enables accurate, compliant, and secure proposals delivered faster — without compromising regulatory integrity or strategic objectives.</p>
+        </div>
+
+        <div class="rind-stats">
+          <div class="rind-stat"><div class="rind-stat-num">60%</div><div class="rind-stat-label">Increase in proposal efficiency</div></div>
+          <div class="rind-stat"><div class="rind-stat-num">95%</div><div class="rind-stat-label">Reduction in RFP sorting time</div></div>
+          <div class="rind-stat"><div class="rind-stat-num">3X</div><div class="rind-stat-label">Output capacity increase</div></div>
+          <div class="rind-stat"><div class="rind-stat-num">200%</div><div class="rind-stat-label">Increase in legal review capacity</div></div>
+        </div>
+
+        <div class="rind-grid">
+          <div class="rind-card">
+            <div class="rind-card-icon">💊</div>
+            <div class="rind-card-title">Regulatory Compliance</div>
+            <div class="rind-card-text">Aligned with FDA, EMA, and GMP requirements. Compliance checks are built into every workflow step — not a separate process, not an afterthought.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">🔒</div>
+            <div class="rind-card-title">Data Security First</div>
+            <div class="rind-card-text">Enterprise encryption with strict access controls and a privacy-first architecture. Built for the sensitive data requirements of pharmaceutical operations.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">📋</div>
+            <div class="rind-card-title">Source-Linked Answers</div>
+            <div class="rind-card-text">Every insight is traced back to the source document. No hallucinations, no assumptions — in high-stakes regulatory environments, accuracy is non-negotiable.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">🤝</div>
+            <div class="rind-card-title">Cross-Functional Coordination</div>
+            <div class="rind-card-text">Legal, regulatory, and business development teams work together in one platform. Real-time collaboration with no silos, no version confusion.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">⚡</div>
+            <div class="rind-card-title">Accelerated RFP Response</div>
+            <div class="rind-card-text">Cut response timelines for compliant proposals. Built-in document editing with AI-powered suggestions reduces manual work and eliminates redundancy.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">🎯</div>
+            <div class="rind-card-title">Proactive Intelligence</div>
+            <div class="rind-card-text">Shift from reactive firefighting to proactive data management. Surface risks, gaps, and opportunities before they become issues — before submission, not after.</div>
+          </div>
+        </div>
+
+        <div class="rind-how">
+          <div class="rind-how-title">How It Works</div>
+          <div class="rind-steps">
+            <div class="rind-step">
+              <div class="rind-step-num">1</div>
+              <div class="rind-step-title">Upload Once</div>
+              <div class="rind-step-text">Feed Ranger AI your regulatory documents, RFPs, compliance frameworks, and historical submissions. It adapts to your organization's standards from day one.</div>
+            </div>
+            <div class="rind-step">
+              <div class="rind-step-num">2</div>
+              <div class="rind-step-title">Ask and Analyze</div>
+              <div class="rind-step-text">Instantly query across your entire document library with source-linked precision. AI-powered parsing maps requirements and flags compliance gaps automatically.</div>
+            </div>
+            <div class="rind-step">
+              <div class="rind-step-num">3</div>
+              <div class="rind-step-title">Collaborate and Deliver</div>
+              <div class="rind-step-text">Legal, regulatory, and BD teams deliver compliant proposals faster — with full audit trails, real-time collaboration, and AI-assisted document editing.</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /pharma -->
+
+      <!-- INDUSTRY (coming soon) -->
+      <!-- ENGINEERING PANEL -->
+      <div class="rind-panel" id="rind-industry">
+
+        <div class="rind-hero">
+          <h3 class="rind-slogan">Simplify and Accelerate<br /><span>Complex Proposal Workflows</span></h3>
+          <p class="rind-sub">Win More Bids. Cut Review Time. Stay Compliant. Ranger AI integrates bid preparation with execution delivery — giving engineering teams the speed and accuracy to submit winning proposals in competitive environments.</p>
+        </div>
+
+        <div class="rind-stats">
+          <div class="rind-stat"><div class="rind-stat-num">60%</div><div class="rind-stat-label">Increase in workflow process efficiency</div></div>
+          <div class="rind-stat"><div class="rind-stat-num">90%</div><div class="rind-stat-label">Decrease in decision evaluation time</div></div>
+          <div class="rind-stat"><div class="rind-stat-num">30%</div><div class="rind-stat-label">Reduction in resources required</div></div>
+          <div class="rind-stat"><div class="rind-stat-num">30%</div><div class="rind-stat-label">Reduction in project turnaround days</div></div>
+        </div>
+
+        <div class="rind-grid">
+          <div class="rind-card">
+            <div class="rind-card-icon">🧠</div>
+            <div class="rind-card-title">Knowledge Hub</div>
+            <div class="rind-card-text">Captures institutional knowledge and adapts to your organizational standards — so every proposal, every deliverable, every answer reflects how your engineering team actually works.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">🤖</div>
+            <div class="rind-card-title">Agent Ranger</div>
+            <div class="rind-card-text">Deploys specialized AI agents that deliver source-linked answers from your documents and technical drawings. Ask anything — get precise, traceable answers instantly.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">📐</div>
+            <div class="rind-card-title">Technical Drawing Analysis</div>
+            <div class="rind-card-text">Extracts insights directly from CAD files and technical schematics. Engineering drawings become queryable data — not static files that slow your team down.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">🏢</div>
+            <div class="rind-card-title">Smart Workspace</div>
+            <div class="rind-card-text">A centralized collaboration environment for real-time execution. Engineering, legal, and commercial teams work from the same source of truth — no silos, no version conflicts.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">✏️</div>
+            <div class="rind-card-title">Ranger Office</div>
+            <div class="rind-card-text">Edit documents directly within the platform with AI assistance. No switching between tools — proposals, specs, and contracts are drafted, reviewed, and finalized in one place.</div>
+          </div>
+          <div class="rind-card">
+            <div class="rind-card-icon">🔒</div>
+            <div class="rind-card-title">Industrial-Grade Security</div>
+            <div class="rind-card-text">SOC 2 Type I certified, ISO 27001 aligned. Enterprise encryption with automated compliance checks — built for the security demands of complex engineering environments.</div>
+          </div>
+        </div>
+
+        <div class="rind-how">
+          <div class="rind-how-title">How It Works</div>
+          <div class="rind-steps">
+            <div class="rind-step">
+              <div class="rind-step-num">1</div>
+              <div class="rind-step-title">Upload Once</div>
+              <div class="rind-step-text">Upload your organizational blueprints, technical drawings, specs, and historical proposals. Ranger AI adapts to your standards for consistent, company-specific outputs every time.</div>
+            </div>
+            <div class="rind-step">
+              <div class="rind-step-num">2</div>
+              <div class="rind-step-title">Ask and Analyze</div>
+              <div class="rind-step-text">The Master Agent deploys AI agents to surface source-linked insights from across your document library — drawings, specs, contracts — answered in seconds, not days.</div>
+            </div>
+            <div class="rind-step">
+              <div class="rind-step-num">3</div>
+              <div class="rind-step-title">Collaborate and Deliver</div>
+              <div class="rind-step-text">Teams review, prepare deliverables, and submit faster — with full source traceability, AI-assisted editing, and real-time collaboration built in.</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /engineering -->
+
+    </div>
+  </section>
+
+  <!-- ⑤ WHY AI — DARK -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="why-grid">
+        <div>
+          <span class="tag-teal">The Opportunity</span>
+          <h2 class="h2-light">Why the Caribbean <span style="color:var(--teal)">Needs AI Now</span></h2>
+          <p class="sub-light">Caribbean organizations face unique structural challenges that AI is uniquely equipped to address.</p>
+          <div class="challenges">
+            <div class="chal"><span class="chal-icon">🚢</span><div class="chal-text"><strong>Supply Chain Complexity</strong>Island logistics create cost and delay inefficiencies that AI can systematically reduce.</div></div>
+            <div class="chal"><span class="chal-icon">🏗️</span><div class="chal-text"><strong>Construction & Infrastructure</strong>Projects face documentation overload, cost overruns, and coordination failures — all solvable with AI.</div></div>
+            <div class="chal"><span class="chal-icon">🌴</span><div class="chal-text"><strong>Tourism & Hospitality</strong>Hyper-competitive market demands faster service, better personalization, and leaner operations.</div></div>
+            <div class="chal"><span class="chal-icon">🏛️</span><div class="chal-text"><strong>Government & Public Sector</strong>Service delivery, procurement, and compliance are ripe for intelligent automation.</div></div>
+          </div>
+        </div>
+        <div>
+          <span class="tag-teal" style="margin-bottom:20px;display:block">The AI Advantage</span>
+          <h3 style="font-family:'Sora',sans-serif;font-size:1.35rem;font-weight:700;color:#fff;margin-bottom:24px;line-height:1.3;">What AI delivers for Caribbean businesses</h3>
+          <div class="benefits-grid">
+            <div class="bcard"><div class="bcard-icon">⚡</div><div class="bcard-title">Speed</div><p class="bcard-desc">Compress days of analysis into minutes with AI-powered tools.</p></div>
+            <div class="bcard"><div class="bcard-icon">💡</div><div class="bcard-title">Better Decisions</div><p class="bcard-desc">Surface insights from your data that teams don't have time to find.</p></div>
+            <div class="bcard"><div class="bcard-icon">💰</div><div class="bcard-title">Cost Control</div><p class="bcard-desc">Identify waste, flag risks early, and optimize operations.</p></div>
+            <div class="bcard"><div class="bcard-icon">🏆</div><div class="bcard-title">Competitiveness</div><p class="bcard-desc">Enterprise-grade AI capabilities without the enterprise overhead.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑥ INDUSTRIES — LIGHT -->
+  <section class="industries" id="industries">
+    <div class="container">
+      <div class="sec-header-center" style="text-align:center;margin-bottom:56px;">
+        <span class="tag-teal">Industries We Serve</span>
+        <h2 class="h2-dark">Built for Caribbean <span style="color:var(--blue)">Business</span></h2>
+        <p class="sub-dark" style="max-width:540px;margin:0 auto;">We understand each Caribbean sector and deliver AI solutions that fit — not generic tools repackaged for the region.</p>
+      </div>
+      <div class="industries-grid">
+        <div class="icard"><div class="icard-icon">🏗️</div><h3 class="icard-name">Construction</h3><p class="icard-desc">Document analysis, cost intelligence, procurement automation, and project coordination.</p></div>
+        <div class="icard"><div class="icard-icon">🌴</div><h3 class="icard-name">Hospitality & Resorts</h3><p class="icard-desc">Operations automation, guest experience AI, revenue optimization.</p></div>
+        <div class="icard"><div class="icard-icon">🏡</div><h3 class="icard-name">Real Estate Development</h3><p class="icard-desc">Project documentation, investor reporting, market analysis workflows.</p></div>
+        <div class="icard"><div class="icard-icon">🏛️</div><h3 class="icard-name">Government</h3><p class="icard-desc">Public service automation, procurement intelligence, citizen-facing AI tools.</p></div>
+        <div class="icard"><div class="icard-icon">🔌</div><h3 class="icard-name">Infrastructure</h3><p class="icard-desc">Asset management, maintenance automation, operations intelligence.</p></div>
+        <div class="icard"><div class="icard-icon">🏭</div><h3 class="icard-name">Manufacturing</h3><p class="icard-desc">Process optimization, quality control, and supply chain intelligence.</p></div>
+        <div class="icard"><div class="icard-icon">📦</div><h3 class="icard-name">Supply Chain</h3><p class="icard-desc">Logistics optimization, inventory intelligence, freight cost reduction.</p></div>
+        <div class="icard"><div class="icard-icon">💼</div><h3 class="icard-name">Professional Services</h3><p class="icard-desc">Document automation, client communication AI, knowledge management.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑦ LEADERSHIP — DARK -->
+  <section class="leadership" id="leadership">
+    <div class="container">
+      <div class="lead-inner">
+        <div class="lead-photo-wrap">
+          <img src="robert.png" alt="Robert Saad — Founder, CaribbeanAI.ai" class="lead-photo" />
+        </div>
+        <div>
+          <span class="tag-teal">Leadership</span>
+          <h2 class="h2-light">Decades of Operations.<br /><span style="color:var(--teal)">Built for AI.</span></h2>
+          <p class="sub-light" style="margin-bottom:28px;">Robert Saad brings decades of experience in operations, manufacturing, supply chain, and business development across Canada, the Caribbean, and Latin America. CaribbeanAI.ai was built to connect the Caribbean market with practical, high-value AI technologies that solve real operational problems.</p>
+          <div class="lead-creds">
+            <div class="lcred"><div class="ldot"></div><div class="lcred-text"><strong>Manufacturing & Supply Chain</strong> — Deep hands-on experience across large-scale industrial operations in North America and the Caribbean.</div></div>
+            <div class="lcred"><div class="ldot"></div><div class="lcred-text"><strong>Construction & Infrastructure</strong> — Operational leadership across major construction and infrastructure projects throughout the region.</div></div>
+            <div class="lcred"><div class="ldot"></div><div class="lcred-text"><strong>Caribbean Market Development</strong> — Established track record building commercial relationships across Caribbean territories.</div></div>
+            <div class="lcred"><div class="ldot"></div><div class="lcred-text"><strong>Technology Partnerships</strong> — Official Caribbean representative for Ranger AI and partner to leading global AI platforms.</div></div>
+          </div>
+          <div class="lead-quote">"The Caribbean doesn't need generic technology. It needs AI solutions built around the real challenges of island businesses — logistics, construction, supply chain, and tourism. That's exactly what we deliver."</div>
+          <a href="#contact" class="btn-teal">Connect with Robert</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑧ CTA — LIGHT -->
+  <section class="cta-section">
+    <div class="container">
+      <span class="tag-teal">Get Started</span>
+      <h2 class="cta-title">Bring AI Into Your Business With the Right Caribbean Partner</h2>
+      <p class="cta-sub">Book a no-obligation strategy call and discover how AI can improve your operations, reduce costs, and give your business a competitive edge.</p>
+      <div class="cta-btns">
+        <a href="#contact" class="btn-teal btn-lg">Book a Demo</a>
+        <a href="#ranger" class="btn-outline-dark btn-lg">Learn About Ranger AI</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑨ CONTACT — DARK -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <span class="tag-teal">Contact</span>
+          <h2 class="h2-light">Let's Talk <span style="color:var(--teal)">AI</span></h2>
+          <p class="sub-light">Whether you're ready to deploy or just exploring, reach out and we'll respond within 24 hours with a clear plan of action.</p>
+          <div class="contact-details">
+            <div class="cdetail"><div class="cdetail-icon">📧</div><div><span class="cdetail-label">Email</span><span class="cdetail-val">robert@caribbeanai.ai</span></div></div>
+            <div class="cdetail"><div class="cdetail-icon">📍</div><div><span class="cdetail-label">Region</span><span class="cdetail-val">Caribbean Basin</span></div></div>
+            <div class="cdetail"><div class="cdetail-icon">🤖</div><div><span class="cdetail-label">Ranger AI Demos</span><span class="cdetail-val">Available on request</span></div></div>
+          </div>
+        </div>
+        <div class="calendly-wrap">
+          <div
+            class="calendly-inline-widget"
+            data-url="https://calendly.com/robert-caribbeanai?hide_gdpr_banner=1&background_color=0d1a30&text_color=ffffff&primary_color=FFD100"
+            style="height:660px;"
+          ></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">Caribbean<span>AI</span>.ai</div>
+          <p class="footer-tag">AI Solutions for the Caribbean. Helping businesses adopt automation, scale operations, and access world-class AI technologies.</p>
+          <p class="footer-partner">Official Caribbean Representative · Ranger AI</p>
+        </div>
+        <div>
+          <p class="fcol-title">Company</p>
+          <ul class="flinks"><li><a href="#about">About</a></li><li><a href="#leadership">Leadership</a></li><li><a href="#contact">Contact</a></li></ul>
+        </div>
+        <div>
+          <p class="fcol-title">Services</p>
+          <ul class="flinks"><li><a href="#services">AI Consulting</a></li><li><a href="#services">Workflow Automation</a></li><li><a href="#ranger">Ranger AI</a></li><li><a href="#services">Digital Transformation</a></li></ul>
+        </div>
+        <div>
+          <p class="fcol-title">Industries</p>
+          <ul class="flinks"><li><a href="#industries">Construction</a></li><li><a href="#industries">Hospitality</a></li><li><a href="#industries">Government</a></li><li><a href="#industries">Real Estate</a></li></ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="fcopy">© 2026 CaribbeanAI.ai · All rights reserved</p>
+        <div class="flegal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Google Translate init
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: 'en', includedLanguages: 'en,es,fr', autoDisplay: false },
+        'google_translate_element'
+      );
+    }
+
+    function setLang(lang, btn) {
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (lang === 'en') {
+        // restore original — remove Google cookie and reload
+        const iframe = document.querySelector('.goog-te-menu-frame');
+        if (iframe) iframe.contentDocument.querySelectorAll('a.goog-te-menu2-item').forEach(a => { if (a.textContent.trim() === 'English') a.click(); });
+        // fallback: use cookie reset
+        document.cookie = 'googtrans=/en/en; path=/';
+        document.cookie = 'googtrans=/en/en; domain=' + location.hostname + '; path=/';
+        location.reload();
+        return;
+      }
+      const select = document.querySelector('.goog-te-combo');
+      if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event('change'));
+      } else {
+        // widget not ready yet — set cookie and reload
+        document.cookie = 'googtrans=/en/' + lang + '; path=/';
+        document.cookie = 'googtrans=/en/' + lang + '; domain=' + location.hostname + '; path=/';
+        location.reload();
+      }
+    }
+
+    function switchRindTab(id, btn) {
+      document.querySelectorAll('.rind-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.rind-tab').forEach(b => b.classList.remove('active'));
+      document.getElementById('rind-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }
+      });
+    });
+  </script>
+  <script src="https://translate.googleapis.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</body>
+</html>
