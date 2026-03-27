@@ -490,6 +490,15 @@
     }
     .btn-orange:hover { background:#d14a15;transform:translateY(-2px); }
 
+    .construction-slideshow { position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(232,84,26,.2);box-shadow:0 24px 64px rgba(0,0,0,.3);background:#0a0a0a; }
+    .cs-track { position:relative;width:100%;aspect-ratio:16/10; }
+    .cs-slide { position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease; }
+    .cs-slide.active { opacity:1; }
+    .cs-dots { display:flex;justify-content:center;gap:8px;padding:14px 0;background:rgba(0,0,0,.5); }
+    .cs-dot { width:10px;height:10px;border-radius:50%;border:2px solid rgba(255,255,255,.3);background:transparent;cursor:pointer;padding:0;transition:all .2s; }
+    .cs-dot.active { background:#E8541A;border-color:#E8541A; }
+    .cs-dot:hover { border-color:#E8541A; }
+
     /* ── MOBILE MENU ─────────────────────────── */
     .mobile-menu { display:none;position:fixed;inset:0;background:rgba(8,15,29,.98);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:28px; }
     .mobile-menu.open { display:flex; }
@@ -1069,48 +1078,35 @@
     <div class="container">
       <div class="construction-inner">
         <div>
-          <div class="construction-badge">🏗️ New Platform — Now Live</div>
+          <div class="construction-badge">🏗️ New Platform — Powered by Ranger AI</div>
           <h2 class="h2-light">Caribbean AI <span style="color:#E8541A">Construction</span></h2>
-          <p class="sub-light">The AI-powered construction platform built specifically for Caribbean and North American contractors. Takeoffs, material quotes, supplier management, and bid documents — all in one tool.</p>
+          <p class="sub-light">The AI-powered construction platform built specifically for Caribbean and North American contractors. Takeoffs, material quotes, supplier management, and bid documents — all in one tool. Powered by <strong style="color:var(--teal)">Ranger AI</strong> intelligence.</p>
           <div class="construction-feats">
             <div class="cfeat">20+ smart calculators — rebar, concrete, roofing, electrical, HVAC, and more</div>
             <div class="cfeat">Material quote builder — send RFQs to suppliers and parse responses with AI</div>
             <div class="cfeat">Live bill of materials — updated automatically from supplier pricing</div>
             <div class="cfeat">AI bid document generator — professional contractor bids exported as PDF</div>
             <div class="cfeat">Labour estimator — phase-by-phase crew hours and costs</div>
-            <div class="cfeat">Materials library — 20+ Caribbean materials with live price tracking</div>
+            <div class="cfeat">Built on Ranger AI — industrial-grade accuracy with zero hallucinations</div>
           </div>
-          <div style="display:flex;gap:14px;flex-wrap:wrap;">
-            <a href="https://caribbean-ai-construction.vercel.app/signup" class="btn-orange">Start Free Trial →</a>
-            <a href="https://caribbean-ai-construction.vercel.app/login" class="btn-outline-white">Sign In</a>
-          </div>
+          <a href="#contact" class="btn-orange">Request a Demo →</a>
         </div>
-        <div class="construction-preview">
-          <div class="cp-header">
-            <div class="cp-dot"></div>
-            <div class="cp-title">Caribbean AI Construction</div>
-            <div class="cp-url">construction.caribbeanai.ai</div>
+        <div class="construction-slideshow">
+          <div class="cs-track">
+            <img src="construction-screens/screen1.png" alt="Dashboard" class="cs-slide active" />
+            <img src="construction-screens/screen2.png" alt="Calculators" class="cs-slide" />
+            <img src="construction-screens/screen3.png" alt="Projects" class="cs-slide" />
+            <img src="construction-screens/screen4.png" alt="Suppliers" class="cs-slide" />
+            <img src="construction-screens/screen5.png" alt="Materials" class="cs-slide" />
+            <img src="construction-screens/screen6.png" alt="BOM" class="cs-slide" />
           </div>
-          <div class="cp-stats">
-            <div class="cp-stat"><div class="cp-stat-num">20+</div><div class="cp-stat-label">Construction calculators</div></div>
-            <div class="cp-stat"><div class="cp-stat-num">5 min</div><div class="cp-stat-label">Average takeoff time</div></div>
-            <div class="cp-stat"><div class="cp-stat-num">$0</div><div class="cp-stat-label">Starter plan — free forever</div></div>
-            <div class="cp-stat"><div class="cp-stat-num">PDF</div><div class="cp-stat-label">Export bids instantly</div></div>
-          </div>
-          <div style="font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px;">Calculators included</div>
-          <div class="cp-calcs">
-            <div class="cp-calc">Rebar</div>
-            <div class="cp-calc">Concrete Slab</div>
-            <div class="cp-calc">Wall</div>
-            <div class="cp-calc">Roof Framing</div>
-            <div class="cp-calc">Electrical</div>
-            <div class="cp-calc">Plumbing</div>
-            <div class="cp-calc">HVAC</div>
-            <div class="cp-calc">Excavation</div>
-            <div class="cp-calc">Flooring</div>
-            <div class="cp-calc">Labour</div>
-            <div class="cp-calc">Foundation Fill</div>
-            <div class="cp-calc">+9 more</div>
+          <div class="cs-dots">
+            <button class="cs-dot active" onclick="goSlide(0)"></button>
+            <button class="cs-dot" onclick="goSlide(1)"></button>
+            <button class="cs-dot" onclick="goSlide(2)"></button>
+            <button class="cs-dot" onclick="goSlide(3)"></button>
+            <button class="cs-dot" onclick="goSlide(4)"></button>
+            <button class="cs-dot" onclick="goSlide(5)"></button>
           </div>
         </div>
       </div>
@@ -1242,6 +1238,22 @@
         location.reload();
       }
     }
+
+    // Construction slideshow
+    let currentSlide = 0;
+    function goSlide(n) {
+      document.querySelectorAll('.cs-slide').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.cs-dot').forEach(d => d.classList.remove('active'));
+      const slides = document.querySelectorAll('.cs-slide');
+      const dots = document.querySelectorAll('.cs-dot');
+      if (slides[n]) slides[n].classList.add('active');
+      if (dots[n]) dots[n].classList.add('active');
+      currentSlide = n;
+    }
+    setInterval(() => {
+      const slides = document.querySelectorAll('.cs-slide');
+      if (slides.length) goSlide((currentSlide + 1) % slides.length);
+    }, 4000);
 
     function switchRindTab(id, btn) {
       document.querySelectorAll('.rind-panel').forEach(p => p.classList.remove('active'));
