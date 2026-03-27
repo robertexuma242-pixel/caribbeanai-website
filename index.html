@@ -468,20 +468,55 @@
     .construction-feats { display:flex;flex-direction:column;gap:14px;margin:28px 0 36px; }
     .cfeat { display:flex;align-items:center;gap:12px;font-size:.87rem;color:var(--text-light); }
     .cfeat::before { content:'';width:7px;height:7px;background:#E8541A;border-radius:50%;flex-shrink:0; }
-    .construction-preview {
-      background:linear-gradient(135deg,#1a0f08,#0d1a30); border-radius:20px; padding:32px;
-      border:1px solid rgba(232,84,26,.2); box-shadow:0 24px 64px rgba(0,0,0,.3);
-    }
-    .cp-header { display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.07); }
-    .cp-dot { width:10px;height:10px;border-radius:50%;background:#E8541A; }
-    .cp-title { font-family:'Sora',sans-serif;font-size:1rem;font-weight:700;color:#fff; }
-    .cp-url { font-size:.72rem;color:rgba(255,255,255,.3);margin-left:auto; }
-    .cp-stats { display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px; }
-    .cp-stat { padding:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px; }
-    .cp-stat-num { font-family:'Sora',sans-serif;font-size:1.6rem;font-weight:700;color:#E8541A; }
-    .cp-stat-label { font-size:.72rem;color:rgba(255,255,255,.45);margin-top:4px; }
-    .cp-calcs { display:flex;flex-wrap:wrap;gap:8px; }
-    .cp-calc { padding:6px 14px;background:rgba(232,84,26,.08);border:1px solid rgba(232,84,26,.2);border-radius:100px;font-size:.7rem;font-weight:600;color:rgba(255,255,255,.6); }
+    /* Ranger Slideshow */
+    .ranger-show { width:100%;background:#0e0e0e;position:relative;overflow:hidden;border-radius:12px;border:1px solid rgba(240,90,26,.15); }
+    .rs-grid-bg { position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none; }
+    .rs-scanline { position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#F05A1A,transparent);animation:rsScan 3s linear infinite;opacity:.3;pointer-events:none;z-index:1; }
+    @keyframes rsScan { from{top:0} to{top:100%} }
+    .rs-slide-area { min-height:420px;display:flex;align-items:center;justify-content:center;padding:48px 36px;position:relative;z-index:2; }
+    .rs-slide { display:none;width:100%;animation:rsFadeIn .7s ease; }
+    .rs-slide.rs-active { display:flex;align-items:center;justify-content:center; }
+    @keyframes rsFadeIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+    .rs-centered { display:flex;flex-direction:column;align-items:center;text-align:center;width:100%; }
+    .rs-logo { width:200px;filter:brightness(0) invert(1);display:block;margin:0 auto; }
+    .rs-tagline { margin-top:20px;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:#F05A1A;font-weight:500; }
+    .rs-upload { font-family:'Sora',sans-serif;font-size:38px;font-weight:700;color:#666;text-transform:uppercase;letter-spacing:.1em; }
+    .rs-and { font-size:18px;color:#444;letter-spacing:.3em;text-transform:uppercase;margin:8px 0; }
+    .rs-ask { font-family:'Sora',sans-serif;font-size:clamp(60px,12vw,120px);font-weight:700;color:#F05A1A;text-transform:uppercase;line-height:1;letter-spacing:-.02em; }
+    .rs-sub { margin-top:16px;font-size:13px;color:#555;letter-spacing:.18em;text-transform:uppercase; }
+    .rs-easy { font-family:'Sora',sans-serif;font-size:clamp(70px,14vw,140px);font-weight:700;color:#F0EEE8;text-transform:uppercase;letter-spacing:-.03em;line-height:1; }
+    .rs-eyebrow { font-size:11px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:#F05A1A;margin-bottom:12px; }
+    .rs-headline { font-family:'Sora',sans-serif;font-size:clamp(32px,5vw,58px);font-weight:700;color:#F0EEE8;text-transform:uppercase;line-height:1.05;margin-bottom:16px; }
+    .rs-body { font-size:15px;color:#777;max-width:480px;line-height:1.7;margin-bottom:20px; }
+    .rs-tags { display:flex;gap:10px;flex-wrap:wrap;justify-content:center; }
+    .rs-tag { background:rgba(240,90,26,.1);border:1px solid rgba(240,90,26,.3);color:#F05A1A;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:2px; }
+    .rs-meet { font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:#444;text-transform:uppercase;letter-spacing:.35em; }
+    .rs-meet-headline { font-family:'Sora',sans-serif;font-size:clamp(48px,8vw,84px);font-weight:700;color:#F0EEE8;text-transform:uppercase;line-height:.95;letter-spacing:-.02em;margin-top:4px; }
+    .rs-divider { width:100px;height:3px;background:#F05A1A;margin:20px auto;border-radius:2px; }
+    .rs-agent-card { width:100%;max-width:600px;background:#161616;border:1px solid #2a2a2a;border-radius:8px;overflow:hidden;margin:0 auto; }
+    .rs-agent-header { background:#F05A1A;padding:16px 24px;display:flex;align-items:center;gap:16px; }
+    .rs-agent-id { font-family:'Sora',sans-serif;font-size:44px;font-weight:700;color:rgba(0,0,0,.2);line-height:1; }
+    .rs-agent-code { font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:rgba(0,0,0,.45); }
+    .rs-agent-name { font-family:'Sora',sans-serif;font-size:26px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.05em;line-height:1.1; }
+    .rs-agent-body { padding:20px 24px; }
+    .rs-agent-mission { font-size:13px;color:#777;line-height:1.65;border-left:2px solid #F05A1A;padding-left:14px;margin-bottom:20px;text-align:left; }
+    .rs-sub-label { font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#444;margin-bottom:10px;text-align:left; }
+    .rs-sub-agent { display:flex;align-items:center;gap:12px;background:#1e1e1e;border:1px solid #2a2a2a;border-radius:4px;padding:10px 14px;text-align:left;margin-bottom:8px; }
+    .rs-sa-dot { width:6px;height:6px;border-radius:50%;background:#F05A1A;flex-shrink:0; }
+    .rs-sa-info { flex:1; }
+    .rs-sa-name { font-size:12px;font-weight:600;color:#ccc;text-transform:uppercase;letter-spacing:.08em; }
+    .rs-sa-focus { font-size:11px;color:#555;margin-top:2px; }
+    .rs-sa-badge { font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:rgba(240,90,26,.12);border:1px solid rgba(240,90,26,.25);color:#F05A1A;padding:3px 8px;border-radius:2px; }
+    .rs-progress { height:2px;background:#1a1a1a;position:relative;z-index:3; }
+    .rs-progress-fill { height:100%;background:#F05A1A;transition:width .4s ease; }
+    .rs-controls { display:flex;align-items:center;justify-content:center;gap:16px;padding:14px 20px;background:#0a0a0a;border-top:1px solid #1e1e1e;position:relative;z-index:3; }
+    .rs-ctrl { background:transparent;border:1px solid #333;color:#777;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:8px 18px;border-radius:3px;cursor:pointer;transition:border-color .2s,color .2s; }
+    .rs-ctrl:hover { border-color:#F05A1A;color:#F05A1A; }
+    .rs-dots { display:flex;gap:8px;align-items:center; }
+    .rs-dot { width:6px;height:6px;border-radius:50%;background:#333;cursor:pointer;transition:background .3s,transform .2s; }
+    .rs-dot.rs-dot-active { background:#F05A1A;transform:scale(1.4); }
+    .rs-counter { font-family:'Sora',sans-serif;font-size:13px;color:#444;letter-spacing:.1em;min-width:40px;text-align:center; }
+
     .btn-orange {
       display:inline-flex;align-items:center;gap:8px;padding:15px 34px;
       background:#E8541A;color:#fff;text-decoration:none;font-size:.86rem;font-weight:600;
@@ -1091,32 +1126,84 @@
           </div>
           <a href="#contact" class="btn-orange">Request a Demo →</a>
         </div>
-        <div class="construction-preview">
-          <div class="cp-header">
-            <div class="cp-dot"></div>
-            <div class="cp-title">Caribbean AI Construction</div>
-            <div class="cp-url">construction.caribbeanai.ai</div>
+        <!-- RANGER SLIDESHOW -->
+        <div class="ranger-show" id="rangerShow">
+          <div class="rs-grid-bg"></div>
+          <div class="rs-scanline"></div>
+          <div class="rs-slide-area">
+            <!-- Slide 1: Logo -->
+            <div class="rs-slide rs-active" data-slide="0">
+              <div class="rs-centered">
+                <img src="https://cdn.prod.website-files.com/68752f6270468cd54dd6530c/68758584d77d33b0dfef33f6_Ranger%20Black%20Logo.svg" alt="Ranger AI" class="rs-logo" />
+                <div class="rs-tagline">AI Agents for Industrial Complexity</div>
+              </div>
+            </div>
+            <!-- Slide 2: Upload & Ask -->
+            <div class="rs-slide" data-slide="1">
+              <div class="rs-centered">
+                <div class="rs-upload">Upload</div>
+                <div class="rs-and">&amp;</div>
+                <div class="rs-ask">ASK</div>
+                <div class="rs-sub">Your documents. Your questions. Instant intelligence.</div>
+              </div>
+            </div>
+            <!-- Slide 3: Easy -->
+            <div class="rs-slide" data-slide="2">
+              <div class="rs-centered">
+                <div class="rs-easy">Easy<span style="color:#F05A1A">.</span></div>
+                <div class="rs-sub">That's the whole point</div>
+              </div>
+            </div>
+            <!-- Slide 4: Agents -->
+            <div class="rs-slide" data-slide="3">
+              <div class="rs-centered">
+                <div class="rs-eyebrow">The Ranger Advantage</div>
+                <div class="rs-headline">Let Ranger AI<br /><span style="color:#F05A1A">&amp; Its Agents</span><br />Do All The Work.</div>
+                <div class="rs-body">Read plans. Make calculations. Identify positions. Score bids. Ranger's agents operate with the precision of an expert team — deployed in seconds.</div>
+                <div class="rs-tags">
+                  <span class="rs-tag">Plan Reading</span>
+                  <span class="rs-tag">Calculations</span>
+                  <span class="rs-tag">Bid Scoring</span>
+                  <span class="rs-tag">Compliance</span>
+                  <span class="rs-tag">Takeoffs</span>
+                </div>
+              </div>
+            </div>
+            <!-- Slide 5: Meet Agents -->
+            <div class="rs-slide" data-slide="4">
+              <div class="rs-centered">
+                <div class="rs-meet">Meet</div>
+                <div class="rs-meet-headline">Our AI<br /><span style="color:#F05A1A">Agents</span></div>
+                <div class="rs-divider"></div>
+                <div class="rs-sub">Specialized. Trained. Deployed on demand.</div>
+              </div>
+            </div>
+            <!-- Slide 6: Agent 007 -->
+            <div class="rs-slide" data-slide="5">
+              <div class="rs-agent-card">
+                <div class="rs-agent-header">
+                  <div class="rs-agent-id">007</div>
+                  <div><div class="rs-agent-code">Primary Agent</div><div class="rs-agent-name">Project Manager</div></div>
+                </div>
+                <div class="rs-agent-body">
+                  <div class="rs-agent-mission">Agent 007 is the intelligence hub for your entire project. Every document, spec, drawing, and requirement lives here. It knows your project — and deploys the right sub-agents to get the work done.</div>
+                  <div class="rs-sub-label">Deployed Sub-Agents</div>
+                  <div class="rs-sub-agent"><div class="rs-sa-dot"></div><div class="rs-sa-info"><div class="rs-sa-name">Takeoff Agent</div><div class="rs-sa-focus">Reads plans, measures quantities, generates takeoff sheets automatically</div></div><div class="rs-sa-badge">Active</div></div>
+                  <div class="rs-sub-agent"><div class="rs-sa-dot"></div><div class="rs-sa-info"><div class="rs-sa-name">Estimating Agent</div><div class="rs-sa-focus">Calculates costs, applies rates, builds bid packages from takeoff data</div></div><div class="rs-sa-badge">Active</div></div>
+                  <div class="rs-sub-agent"><div class="rs-sa-dot"></div><div class="rs-sa-info"><div class="rs-sa-name">Scheduling Agent</div><div class="rs-sa-focus">Sequences tasks, assigns resources, flags critical path conflicts</div></div><div class="rs-sa-badge">Active</div></div>
+                  <div class="rs-sub-agent"><div class="rs-sa-dot"></div><div class="rs-sa-info"><div class="rs-sa-name">Blueprint Intelligence</div><div class="rs-sa-focus">Reads drawings, identifies positions, spatial relationships, and dimensions</div></div><div class="rs-sa-badge">Active</div></div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="cp-stats">
-            <div class="cp-stat"><div class="cp-stat-num">20+</div><div class="cp-stat-label">Construction calculators</div></div>
-            <div class="cp-stat"><div class="cp-stat-num">5 min</div><div class="cp-stat-label">Average takeoff time</div></div>
-            <div class="cp-stat"><div class="cp-stat-num">AI</div><div class="cp-stat-label">Powered by Ranger AI</div></div>
-            <div class="cp-stat"><div class="cp-stat-num">PDF</div><div class="cp-stat-label">Export bids instantly</div></div>
-          </div>
-          <div style="font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px;">Calculators included</div>
-          <div class="cp-calcs">
-            <div class="cp-calc">Rebar</div>
-            <div class="cp-calc">Concrete Slab</div>
-            <div class="cp-calc">Wall</div>
-            <div class="cp-calc">Roof Framing</div>
-            <div class="cp-calc">Electrical</div>
-            <div class="cp-calc">Plumbing</div>
-            <div class="cp-calc">HVAC</div>
-            <div class="cp-calc">Excavation</div>
-            <div class="cp-calc">Flooring</div>
-            <div class="cp-calc">Labour</div>
-            <div class="cp-calc">Foundation Fill</div>
-            <div class="cp-calc">+9 more</div>
+          <!-- Progress bar -->
+          <div class="rs-progress"><div class="rs-progress-fill" id="rsProgressFill"></div></div>
+          <!-- Controls -->
+          <div class="rs-controls">
+            <button class="rs-ctrl" onclick="rsGo(rsCurrent-1)">← Prev</button>
+            <div class="rs-dots" id="rsDots"></div>
+            <span class="rs-counter" id="rsCounter">1 / 6</span>
+            <button class="rs-ctrl" onclick="rsGo(rsCurrent+1)">Next →</button>
           </div>
         </div>
       </div>
@@ -1249,21 +1336,33 @@
       }
     }
 
-    // Construction slideshow
-    let currentSlide = 0;
-    function goSlide(n) {
-      document.querySelectorAll('.cs-slide').forEach(s => s.classList.remove('active'));
-      document.querySelectorAll('.cs-dot').forEach(d => d.classList.remove('active'));
-      const slides = document.querySelectorAll('.cs-slide');
-      const dots = document.querySelectorAll('.cs-dot');
-      if (slides[n]) slides[n].classList.add('active');
-      if (dots[n]) dots[n].classList.add('active');
-      currentSlide = n;
+    // Ranger Slideshow
+    let rsCurrent = 0;
+    const rsTotal = 6;
+    function rsInit() {
+      const dotsEl = document.getElementById('rsDots');
+      if (!dotsEl) return;
+      for (let i = 0; i < rsTotal; i++) {
+        const d = document.createElement('div');
+        d.className = 'rs-dot' + (i === 0 ? ' rs-dot-active' : '');
+        d.onclick = () => rsGo(i);
+        dotsEl.appendChild(d);
+      }
     }
-    setInterval(() => {
-      const slides = document.querySelectorAll('.cs-slide');
-      if (slides.length) goSlide((currentSlide + 1) % slides.length);
-    }, 4000);
+    function rsGo(n) {
+      n = ((n % rsTotal) + rsTotal) % rsTotal;
+      document.querySelectorAll('.rs-slide').forEach(s => s.classList.remove('rs-active'));
+      const slides = document.querySelectorAll('.rs-slide');
+      if (slides[n]) slides[n].classList.add('rs-active');
+      document.querySelectorAll('.rs-dot').forEach((d, i) => d.classList.toggle('rs-dot-active', i === n));
+      const fill = document.getElementById('rsProgressFill');
+      if (fill) fill.style.width = ((n + 1) / rsTotal * 100) + '%';
+      const counter = document.getElementById('rsCounter');
+      if (counter) counter.textContent = (n + 1) + ' / ' + rsTotal;
+      rsCurrent = n;
+    }
+    rsInit();
+    setInterval(() => rsGo(rsCurrent + 1), 5500);
 
     function switchRindTab(id, btn) {
       document.querySelectorAll('.rind-panel').forEach(p => p.classList.remove('active'));
